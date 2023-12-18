@@ -1,0 +1,49 @@
+.button-row-top {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .button-switch {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .button-switch.bm-active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .button-switch.bi-active {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .language-texts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 260px;
+    margin-left: -180px;
+  }
+  
+  .text-switch-active-left {
+    /* Add your styles for the active left text (BM) */
+  }
+  
+  .text-switch-left {
+    /* Add your styles for the left text (BM) */
+  }
+  
+  .text-switch-inactive {
+    /* Add your styles for the inactive right text (BI) */
+  }
+  
+  .text-switch {
+    /* Add your styles for the right text (BI) */
+  }
+  
