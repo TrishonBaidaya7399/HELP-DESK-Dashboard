@@ -1,5 +1,6 @@
 import { FaEdit, FaUser } from "react-icons/fa";
 import useUserInfo from "../../../../Hooks/useUserInfo";
+import { NavLink } from "react-router-dom";
 
 const UserProfile = () => {
   const [userInfo] = useUserInfo();
@@ -10,7 +11,9 @@ const UserProfile = () => {
       <div className="p-12 flex gap-12 bg-[#55D6C2] bg-opacity-70 rounded-lg justify-center">
         <div className="profileCard bg-white rounded-lg p-6 w-[330px] relative">
             <div className="absolute right-5 text-xl">
+            <NavLink to="/userProfile/editProfile">
                 <FaEdit/>
+            </NavLink>
             </div>
           <div className="flex justify-center">
             {userInfo?.image ? (

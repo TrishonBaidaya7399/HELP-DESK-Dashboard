@@ -22,6 +22,12 @@ const DashboardHome = () => {
                 <h1 className="text-6xl font-bold text-[#05386B]">12</h1>
                 </div>
             </div>
+            <div className="flex gap-12 w-full">
+                <div className="stat-section w-full bg-[#55D6C2] rounded-sm p-6">
+                    
+                </div>
+                <div className="help-section flex flex-col gap-6 w-full"></div>
+            </div>
         </div>
     );
 };

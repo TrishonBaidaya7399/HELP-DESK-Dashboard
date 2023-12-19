@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import NewTicket from "../assets/Dashboard/Pages/NewTicket/NewTicket";
 import MyTickets from "../assets/Dashboard/Pages/MyTickets/MyTickets";
 import UserProfile from "../assets/Dashboard/Pages/UserProfile/UserProfile";
+import EditProfile from "../assets/Dashboard/Pages/EditProfile/EditProfile";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "userProfile",
         element: <UserProfile/>
+      },
+      {
+        path: "/userProfile/editProfile",
+        element: <EditProfile/>
       },
     ],
   },
