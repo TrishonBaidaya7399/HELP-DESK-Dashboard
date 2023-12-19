@@ -1,6 +1,7 @@
 // import PropTypes from 'prop-types';
 import { MdDashboard } from "react-icons/md";
 import { BsFillTicketFill } from "react-icons/bs";
+import { MdOutlineSettings } from "react-icons/md";
 import { HiTicket } from "react-icons/hi2";
 import { NavLink, Outlet } from "react-router-dom";
 import useUserInfo from "../../Hooks/useUserInfo";
@@ -36,6 +37,9 @@ const DashBoard = () => {
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-gray-300 text-black text-xl ">
           {/* Sidebar content here */}
+          {user?.role ==="user"
+          &&
+          <>
           <li>
             <NavLink to="dashboard"
               className={({ isActive }) =>
@@ -52,10 +56,60 @@ const DashBoard = () => {
               </div>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="newTicket"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <BsFillTicketFill />
+                </div>
+                <div>
+                  <h1>New Ticket</h1>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="myTickets"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <HiTicket />
+                </div>
+                <div>
+                  <h1>My Tickets</h1>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          </>
+          }
           {
             user?.role === "admin"
             &&
             <>
+             <li>
+            <NavLink to="dashboard"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <MdDashboard />
+                </div>
+                <div>
+                  <h1>Dashboard</h1>
+                </div>
+              </div>
+            </NavLink>
+          </li>
             <li onClick={()=>setExpand(!expand)}
               className={({ isActive }) =>
               isActive ? "active bg-[transparent] " : ""
@@ -121,41 +175,24 @@ const DashBoard = () => {
             </NavLink>
           </li>
           </div>
+          <li>
+            <NavLink to="/settings"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <MdOutlineSettings />
+                </div>
+                <div>
+                  <h6 className="text-md">Settings</h6>
+                </div>
+              </div>
+            </NavLink>
+          </li>
               </>
-          }
-          <li>
-            <NavLink to="newTicket"
-              className={({ isActive }) =>
-                isActive ? "active bg-[transparent] " : ""
-              }
-            >
-              <div className="flex items-center gap-2">
-                <div>
-                  <BsFillTicketFill />
-                </div>
-                <div>
-                  <h1>New Ticket</h1>
-                </div>
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="myTickets"
-              className={({ isActive }) =>
-                isActive ? "active bg-[transparent] " : ""
-              }
-            >
-              <div className="flex items-center gap-2">
-                <div>
-                  <HiTicket />
-                </div>
-                <div>
-                  <h1>My Tickets</h1>
-                </div>
-              </div>
-            </NavLink>
-          </li>
-          
+          }          
         </ul>
       </div>
     </div>

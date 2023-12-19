@@ -12,6 +12,7 @@ import EditProfile from "../assets/Dashboard/Pages/EditProfile/EditProfile";
 import UserDatabase from "../assets/Pages/Database/UserDatabase";
 import OperatorDatabase from "../assets/Pages/Database/OperatorDatabase";
 import TechnicalDatabase from "../assets/Pages/Database/TechnicalDatabase";
+import Settings from "../assets/Pages/Settings/Settings";
 
 
 
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "userProfile",
         element: <UserProfile/>
+      },
+      {
+        path: "/settings",
+        element: <Settings/>
       },
       {
         path: "/userProfile/editProfile",
