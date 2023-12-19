@@ -1,5 +1,6 @@
 // import PropTypes from 'prop-types';
 import { MdDashboard } from "react-icons/md";
+import { PiNotepadBold } from "react-icons/pi";
 import { BsFillTicketFill } from "react-icons/bs";
 import { MdOutlineSettings } from "react-icons/md";
 import { HiTicket } from "react-icons/hi2";
@@ -28,6 +29,7 @@ const DashBoard = () => {
           Open drawer
         </label>
         <Outlet></Outlet>
+        <div className="bg-[#55D6C2] h-10 text-center text-xl font-semibold w-full py-1">Footer Area</div>
       </div>
       <div className="drawer-side">
         <label
@@ -187,6 +189,22 @@ const DashBoard = () => {
                 </div>
                 <div>
                   <h6 className="text-md">Settings</h6>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/userLogHistory"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <PiNotepadBold />
+                </div>
+                <div>
+                  <h6 className="text-md">User Log History</h6>
                 </div>
               </div>
             </NavLink>

@@ -70,7 +70,10 @@ const Settings = () => {
             </div>
             <div className="ml-[5%] w-[95%] bg-gray-400 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>Data Backup</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
           </>
         )}
@@ -83,13 +86,19 @@ const Settings = () => {
         </button>
         {contact && (
           <>
-           <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
+            <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>GoDash</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
             <div className="ml-[5%] w-[95%] bg-gray-400 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>SuperController</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
           </>
         )}
@@ -104,7 +113,10 @@ const Settings = () => {
           <>
             <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>Enable SMTP</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
           </>
         )}
@@ -117,13 +129,21 @@ const Settings = () => {
         </button>
         {authorization && (
           <>
-           <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
+            <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>Edit authorization</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
             <div className="ml-[5%] w-[95%] bg-gray-400 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>Authority Level</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <select className="bg-gray-300 text-sm h-6 border-2 border-black rounded-sm w-10">
+                <option>Tiny</option>
+                <option>Tiny Apple</option>
+                <option>Tiny Orange</option>
+                <option>Tiny Tomato</option>
+              </select>
             </div>
           </>
         )}
@@ -136,9 +156,12 @@ const Settings = () => {
         </button>
         {notification && (
           <>
-           <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
+            <div className="ml-[5%] w-[95%] bg-gray-300 flex gap-6 text-xl font-semibold items-center justify-between px-6 h-10">
               <p>Enable Notification</p>
-              <input type="checkbox"  className="checkbox border-2 border-black bg-white" />
+              <input
+                type="checkbox"
+                className="checkbox border-2 border-black bg-white"
+              />
             </div>
           </>
         )}
