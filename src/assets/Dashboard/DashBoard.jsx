@@ -3,8 +3,17 @@ import { MdDashboard } from "react-icons/md";
 import { BsFillTicketFill } from "react-icons/bs";
 import { HiTicket } from "react-icons/hi2";
 import { NavLink, Outlet } from "react-router-dom";
+import useUserInfo from "../../Hooks/useUserInfo";
+import { FaDatabase } from "react-icons/fa";
+import { useState } from "react";
+import userIcon from "../../../src/assets/images/icons/Checked User Male.png"
+import operatorIcon from "../../../src/assets/images/icons/technical-support.png"
+import technicalIcon from "../../../src/assets/images/icons/Computer Support.png"
 
 const DashBoard = () => {
+  const [expand, setExpand] = useState(false)
+  const [user] = useUserInfo();
+  console.log(user?.role)
    
   return (
     <div className="drawer lg:drawer-open">
@@ -43,6 +52,77 @@ const DashBoard = () => {
               </div>
             </NavLink>
           </li>
+          {
+            user?.role === "admin"
+            &&
+            <>
+            <li onClick={()=>setExpand(!expand)}
+              className={({ isActive }) =>
+              isActive ? "active bg-[transparent] " : ""
+            }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <FaDatabase />
+                </div>
+                <div>
+                  <h1>Database</h1>
+                </div>
+              </div>
+
+          </li>
+          <div className={expand ? "block ml-12 mt-1" : "hidden"}>
+          <li>
+            <NavLink to="/database/user"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src={userIcon} className="w-7" alt="" />
+                </div>
+                <div>
+                  <h6 className="text-md">User</h6>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/database/operator"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src={operatorIcon} className="w-4" alt="" />
+                </div>
+                <div>
+                  <h6 className="text-md">Operation Team</h6>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/database/technical"
+              className={({ isActive }) =>
+                isActive ? "active bg-[transparent] " : ""
+              }
+            >
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src={technicalIcon} className="w-6" alt="" />
+                </div>
+                <div>
+                  <h6 className="text-md">Technical Support</h6>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          </div>
+              </>
+          }
           <li>
             <NavLink to="newTicket"
               className={({ isActive }) =>

@@ -2,24 +2,10 @@
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
 import technicalImg from "../../../assets/images/icons/technical-support.png";
 import operatorImg from "../../../assets/images/icons/operator.png";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { useContext } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+import useUserInfo from "../../../Hooks/useUserInfo";
 
 const DashboardHome = () => {
-    const axiosPublic = useAxiosPublic();
-    const {user} = useContext(AuthContext);
-    // console.log("Inside useUserInfo: ",user?.email);
-    const { data: userInfo = [] } = useQuery({
-        queryKey: ["userInfo", user?.email],
-        enabled: !!user?.email,
-        queryFn: async () => {
-          const res = await axiosPublic.get(`/users?email=${user?.email}`);
-          return res.data;
-        }
-      });
-      console.log("UserInfo inside useUserInfo: ", userInfo);
+    const [user] = useUserInfo();
   const data = [
     {
       name: "Page A",
@@ -90,7 +76,7 @@ const DashboardHome = () => {
         </div>
       </div>
       {
-        userInfo?.role ==="admin"
+        user?.role ==="admin"
         &&
       <div className="flex gap-12 w-full my-8">
         <div className="stat-section w-full bg-[#55D6C2] rounded-md p-12">
