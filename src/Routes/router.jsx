@@ -7,6 +7,7 @@ import ForgetPassword from "../assets/Pages/ForgetPassword/ForgetPassword";
 import PrivateRoute from "./PrivateRoute";
 import NewTicket from "../assets/Dashboard/Pages/NewTicket/NewTicket";
 import MyTickets from "../assets/Dashboard/Pages/MyTickets/MyTickets";
+import UserProfile from "../assets/Dashboard/Pages/UserProfile/UserProfile";
 
 
 
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "myTickets",
         element: <MyTickets/>
+      },
+      {
+        path: "userProfile",
+        element: <UserProfile/>
       },
     ],
   },

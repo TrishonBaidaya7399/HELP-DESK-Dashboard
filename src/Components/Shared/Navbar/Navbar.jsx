@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { FaBell, FaUser } from "react-icons/fa";
 import { TbLogin, TbLogout } from "react-icons/tb";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import SwitchSelector from "react-switch-selector";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -117,7 +117,9 @@ const Navbar = () => {
           <FaBell className="text-xl" />
         </div>
         <div className="user-profile">
+          <NavLink to="/userProfile">
           <FaUser className="text-xl" />
+          </NavLink>
         </div>
         {user ? (
           <div className="logout">
