@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Signup = () => {
+  const axiosPublic = useAxiosPublic();
     const { createUser, updateUser, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
-    const handleSignup =(e)=>{
+    const handleSignup = async (e)=>{
         e.preventDefault()
         const form = e.target;
         const username = form.username.value;
@@ -23,13 +25,22 @@ const Signup = () => {
         updateUser(username)
           .then(() => {
             console.log('Profile Updated');
-            Swal.fire({
-                      title: 'Profile Created!',
-                      text: "Profile created successfully!",
-                      confirmButtonText: 'Ok!',
-                      icon: "success"
-                    });
-                    logOut()
+            const userData = {
+              name: username,
+              email: email,
+              role: 'user',
+            };
+            axiosPublic.post('/users', userData).then((res) => {
+              if (res.data.insertedId) {
+                console.log('User info added to the database!');
+                Swal.fire({
+                  title: 'Profile Created!',
+                  text: `UserProfile created successfully!`,
+                  icon: "success",
+                  confirmButtonText: 'Ok!',
+                });
+                form.reset();
+                logOut()
                   .then(() => {
                     console.log('Logged Out Successfully!');
                     navigate('/login');
@@ -37,39 +48,8 @@ const Signup = () => {
                   .catch((error) => {
                     console.error(error.message);
                   });
-            // const userData = {
-            //   name: username,
-            //   email: email,
-            //   role: 'user',
-            // };
-            // axiosPublic.post('/users', userData).then((res) => {
-            //   if (res.data.insertedId) {
-            //     console.log('User info added to the database!');
-            //     Swal.fire({
-            //       title: 'Profile Created!',
-            //       text: `${result.user?.displayName ? result.user.displayName : 'User'} Profile created successfully!`,
-            //       imageUrl: result.user?.photoURL
-            //         ? result.user.photoURL || result.user.photoURL
-            //         : 'https://i.ibb.co/qnT81gF/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg',
-            //       imageWidth: 200,
-            //       imageHeight: 200,
-            //       imageAlt: 'Custom image',
-            //       confirmButtonText: 'Ok!',
-            //     });
-            //     reset();
-            //     logOut()
-            //       .then(() => {
-            //         console.log('Logged Out Successfully!');
-            //         setLoading(false);
-            //         navigate('/login');
-            //       })
-            //       .catch((error) => {
-            //         console.error(error.message);
-            //         setError(error.message);
-            //         setLoading(false);
-            //       });
-            //   }
-            // });
+              }
+            });
           })
           .catch((error) => {
             console.error(error.message);

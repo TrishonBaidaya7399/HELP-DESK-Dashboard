@@ -25,7 +25,7 @@ const DashBoard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-gray-300 text-black text-xl">
+        <ul className="menu p-4 w-80 min-h-full bg-gray-300 text-black text-xl ">
           {/* Sidebar content here */}
           <li>
             <NavLink to="dashboard"
@@ -60,7 +60,7 @@ const DashBoard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="myTicket"
+            <NavLink to="myTickets"
               className={({ isActive }) =>
                 isActive ? "active bg-[transparent] " : ""
               }
@@ -70,7 +70,7 @@ const DashBoard = () => {
                   <HiTicket />
                 </div>
                 <div>
-                  <h1>My Ticket</h1>
+                  <h1>My Tickets</h1>
                 </div>
               </div>
             </NavLink>

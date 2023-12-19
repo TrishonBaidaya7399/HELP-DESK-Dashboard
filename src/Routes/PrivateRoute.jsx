@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
           ariaLabel="hourglass-loading"
           wrapperStyle={{}}
           wrapperClass=""
-          colors={["#d5850cb2", "#D1A054B2"]}
+          colors={["#2F82FF", "#05386B"]}
         />
       </div>
     );

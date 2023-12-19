@@ -3,7 +3,7 @@
 const DashboardHome = () => {
     return (
         <div className=" mb-auto mt-6">
-            <h1 className="text-2xl font-bold text-center">Dashboard</h1>
+            <h1 className="text-2xl font-semibold text-center">Dashboard</h1>
             <div className="card-section flex gap-4 mt-6">
                 <div className="card rounded-lg bg-[#2F82FF] w-[200px] flex justify-center items-center p-5">
                 <h1 className="text-xl text-[#05386B] font-bold">Total Tickets</h1>
